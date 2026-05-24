@@ -1,0 +1,38 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\definecolor{primary}{HTML}{2563EB}
+\titleformat{\section}{\Large\bfseries\color{primary}}{}{0em}{}[\titlerule]
+
+\begin{document}
+\begin{flushleft}
+    {\Huge \textbf{\color{primary} {{NAME}}}} \\
+    \vspace{2mm}
+    {\Large {{ROLE}}} \\
+    \vspace{2mm}
+    {{EMAIL}} \textbullet\ {{PHONE}} \textbullet\ {{LINKEDIN}} \textbullet\ {{GITHUB}}
+\end{flushleft}
+
+\vspace{4mm}
+\section*{Professional Summary}
+{{SUMMARY}}
+
+\section*{Work Experience}
+{{EXPERIENCE}}
+
+\section*{Technical Projects}
+{{PROJECTS}}
+
+\section*{Core Competencies}
+{{SKILLS}}
+
+\section*{Education}
+{{EDUCATION}}
+
+\end{document}
