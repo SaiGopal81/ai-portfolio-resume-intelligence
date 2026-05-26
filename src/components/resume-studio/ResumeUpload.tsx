@@ -38,13 +38,17 @@ export const ResumeUpload = ({ onComplete }: ResumeUploadProps) => {
         body: formData,
       });
       
-      if (!res.ok) throw new Error('Failed to parse resume');
-      
       const data = await res.json();
+      
+      if (!res.ok) {
+        throw new Error(data.details || data.error || 'Failed to parse resume');
+      }
+      
       setParsedData(data);
       toast.success('Resume parsed successfully!');
-    } catch (err) {
-      toast.error('Error parsing resume. Please try again.');
+    } catch (err: any) {
+      console.error(err);
+      toast.error(err.message || 'Error parsing resume. Please try again.');
       setFile(null);
     } finally {
       setIsParsing(false);

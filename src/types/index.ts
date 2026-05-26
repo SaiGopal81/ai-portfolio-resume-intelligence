@@ -43,7 +43,9 @@ export type SkillCategory =
   | 'AI & ML'
   | 'Cloud & Orchestration'
   | 'Databases'
-  | 'Programming Languages';
+  | 'Programming Languages'
+  | 'Web Development'
+  | 'Tools & Others';
 
 export interface Experience {
   role: string;
@@ -114,8 +116,11 @@ export interface LearningPathLevel {
 
 export interface SkillGapItem {
   skill: string;
-  priority: 'High' | 'Medium' | 'Low';
-  estimatedLearningTime: string;
+  priority: 'Critical' | 'High' | 'Medium' | 'Low';
+  type: 'technical' | 'domain';
+  readinessLevel: 'Beginner Exposure' | 'Working Knowledge' | 'Interview Ready';
+  estimatedLearningHours: string;
+  learningOrder: number;
   reason: string;
   learningPath: LearningPathLevel[];
 }
@@ -129,6 +134,33 @@ export interface JobAnalysis {
   categoryBreakdown: { category: string; matched: number; total: number; percentage: number }[];
   keywordDistribution: { keyword: string; jdCount: number; resumeCount: number }[];
   skillGapItems: SkillGapItem[];
+  skillMatchMatrix: {
+    skill: string;
+    resumeEvidence: string;
+    jdEvidence: string;
+    status: 'Matched' | 'Partial Match' | 'Missing';
+  }[];
+  coverageBreakdown: {
+    matched: number;
+    partial: number;
+    jdSkills: number;
+    formula: string;
+    result: number;
+  };
+  atsRelevanceScore: number;
+  domainExposureOpportunities: {
+    skill: string;
+    reason: string;
+    readinessLevel: 'Beginner Exposure' | 'Working Knowledge' | 'Interview Ready';
+    estimatedLearningHours: string;
+    learningOrder: number;
+  }[];
+  missingTechnicalATS: string[];
+  missingDomainATS: string[];
+  recruiterSummary: {
+    strengths: string[];
+    topGaps: string[];
+  };
 }
 
 // ============================================================

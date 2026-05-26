@@ -7,23 +7,14 @@ import { StepIndicator } from '@/components/ui/StepIndicator';
 import { ResumeUpload } from '@/components/resume-studio/ResumeUpload';
 import { JobDescription } from '@/components/resume-studio/JobDescription';
 import { SkillAnalysis } from '@/components/resume-studio/SkillAnalysis';
-import { ResumeComparison } from '@/components/resume-studio/ResumeComparison';
-import { ExportPanel } from '@/components/resume-studio/ExportPanel';
-import { ResumeData, JobAnalysis, ChangeItem, ResumeVersion } from '@/types';
-import { Button } from '@/components/ui/Button';
-import { ArrowRight } from 'lucide-react';
-import { saveVersion } from '@/lib/resume-versions';
+import { ResumeData, JobAnalysis } from '@/types';
 
-const STEPS = ['Upload', 'Job Description', 'Analysis', 'Review', 'Export'];
+const STEPS = ['Upload', 'Job Description', 'Skill Gap Analysis'];
 
 export default function ResumeStudioPage() {
   const [currentStep, setCurrentStep] = useState(0);
   const [resumeData, setResumeData] = useState<ResumeData | null>(null);
   const [analysis, setAnalysis] = useState<JobAnalysis | null>(null);
-  const [optimizedText, setOptimizedText] = useState<string>('');
-  const [changes, setChanges] = useState<ChangeItem[]>([]);
-
-  const originalText = `Sai Gopal\nAI Data Engineer\nExperience: Data Engineering Intern at Sigmoid\nBuilt data pipelines using PySpark and Airflow.`;
 
   const handleUploadComplete = (data: ResumeData) => {
     setResumeData(data);
@@ -32,19 +23,7 @@ export default function ResumeStudioPage() {
 
   const handleAnalysisComplete = (newAnalysis: JobAnalysis) => {
     setAnalysis(newAnalysis);
-    
-    setOptimizedText(`Sai Gopal\nAI Data Engineer\nExperience: Data Engineering Intern at Sigmoid\n- Architected scalable data pipelines using PySpark and Airflow\n- Optimized query performance by 40%`);
-    
-    setChanges([
-      { type: 'enhanced', section: 'Experience', description: 'Rewrote bullet point to include action verbs and metrics' },
-      { type: 'added', section: 'Skills', description: 'Added required skill: Kubernetes based on JD' }
-    ]);
-    
     setCurrentStep(2);
-  };
-
-  const handleSaveVersion = (version: Partial<ResumeVersion>) => {
-    saveVersion(version as ResumeVersion);
   };
 
   return (
@@ -71,27 +50,8 @@ export default function ResumeStudioPage() {
 
           {currentStep === 2 && analysis && (
             <div className="space-y-8 max-w-5xl mx-auto">
-              <SkillAnalysis analysis={analysis} />
-              <div className="flex justify-end pt-8 border-t border-slate-800">
-                <Button variant="primary" onClick={() => setCurrentStep(3)}>
-                  Review AI Optimizations <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
+              <SkillAnalysis analysis={analysis} resumeData={resumeData!} onBack={() => setCurrentStep(0)} />
             </div>
-          )}
-
-          {currentStep === 3 && (
-            <ResumeComparison 
-              originalText={originalText}
-              optimizedText={optimizedText}
-              changes={changes}
-              onSaveVersion={handleSaveVersion}
-              onExport={() => setCurrentStep(4)}
-            />
-          )}
-
-          {currentStep === 4 && (
-            <ExportPanel />
           )}
         </div>
       </div>

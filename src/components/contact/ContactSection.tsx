@@ -5,7 +5,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { GlowCard } from '@/components/ui/GlowCard';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Button } from '@/components/ui/Button';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Download } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import Link from 'next/link';
 import { toast } from 'react-hot-toast';
@@ -54,7 +54,9 @@ export const ContactSection = () => {
           
           <div className="lg:col-span-2 space-y-6">
             <ScrollReveal direction="right">
-              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                <h3 className="text-2xl font-bold text-white">Contact Information</h3>
+              </div>
               <div className="space-y-4">
                 <ContactInfo icon={<Mail />} label="Email" value="saigopal.potnuru@gmail.com" href="mailto:saigopal.potnuru@gmail.com" />
                 <ContactInfo icon={<Phone />} label="Phone" value="+91 7205228***" href="tel:+917205228***" />

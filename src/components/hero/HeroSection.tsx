@@ -64,7 +64,7 @@ export const HeroSection = () => {
                   View Projects <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
-              <Link href="/resume/resume.pdf" target="_blank">
+              <Link href="/resume.pdf" target="_blank">
                 <Button variant="outline" size="lg">
                   Download Resume <Download className="w-5 h-5 ml-2" />
                 </Button>

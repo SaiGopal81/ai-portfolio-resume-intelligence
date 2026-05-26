@@ -51,7 +51,11 @@ export const AIChatbot = () => {
         const text = decoder.decode(value, { stream: true });
         setMessages(prev => {
           const newMsgs = [...prev];
-          newMsgs[newMsgs.length - 1].content += text;
+          const lastIndex = newMsgs.length - 1;
+          newMsgs[lastIndex] = { 
+            ...newMsgs[lastIndex], 
+            content: newMsgs[lastIndex].content + text 
+          };
           return newMsgs;
         });
       }

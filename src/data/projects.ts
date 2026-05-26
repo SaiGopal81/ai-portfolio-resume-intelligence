@@ -2,7 +2,7 @@ import { Project } from '@/types';
 
 export const projects: Project[] = [
   {
-    slug: 'autonomous-data-platform',
+    slug: 'ai-autonomous-data-engineering-platform',
     title: 'AI-Powered Autonomous Data Engineering Platform',
     description: 'Built an autonomous data engineering platform using AI agents that self-monitor, self-heal, and optimize data pipelines without human intervention.',
     problemStatement: 'Traditional data pipelines require constant manual monitoring and intervention. Pipeline failures, data quality issues, and performance degradation cause significant downtime and require dedicated engineering teams for maintenance.',
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     docs: '#',
     liveDemo: '#',
     assets: {
-      banner: '/projects/autonomous-data-platform/banner.png',
+      banner: '/projects/data_platform.png',
       architectureImages: ['/projects/autonomous-data-platform/architecture-1.png'],
       screenshots: ['/projects/autonomous-data-platform/screenshot-1.png'],
       documentationFiles: [],
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: 'fraud-detection-pipeline',
+    slug: 'fraud-detection-risk-analytics-pipeline',
     title: 'Fraud Detection & Risk Analytics Pipeline',
     description: 'Designed and built a scalable fraud detection pipeline on Azure using PySpark and Delta Lake to process financial transactions and flag suspicious activity in near real-time.',
     problemStatement: 'Financial institutions face challenges in detecting fraudulent transactions at scale. Traditional rule-based systems generate high false positive rates and cannot adapt to evolving fraud patterns, resulting in financial losses and customer dissatisfaction.',
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     docs: '#',
     liveDemo: '#',
     assets: {
-      banner: '/projects/fraud-detection-pipeline/banner.png',
+      banner: '/projects/fraud_pipeline.png',
       architectureImages: ['/projects/fraud-detection-pipeline/architecture-1.png'],
       screenshots: ['/projects/fraud-detection-pipeline/screenshot-1.png'],
       documentationFiles: [],
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: 'airport-operations',
+    slug: 'airport-operations-analytics-platform',
     title: 'Airport Operations Analytics Platform',
     description: 'Built a comprehensive analytics platform for airport operations leveraging Azure cloud services to optimize flight scheduling, passenger flow, and resource allocation.',
     problemStatement: 'Airport operations generate massive amounts of data from multiple sources — flight schedules, passenger manifests, gate assignments, and resource systems. Without unified analytics, operations teams struggle with inefficient resource allocation and delayed decision-making.',
@@ -138,7 +138,7 @@ export const projects: Project[] = [
     docs: '#',
     liveDemo: '#',
     assets: {
-      banner: '/projects/airport-operations/banner.png',
+      banner: '/projects/airport_ops.png',
       architectureImages: ['/projects/airport-operations/architecture-1.png'],
       screenshots: ['/projects/airport-operations/screenshot-1.png'],
       documentationFiles: [],
@@ -146,7 +146,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: 'medihita',
+    slug: 'medihita-doctor-appointment-platform',
     title: 'MediHita Doctor Appointment Platform',
     description: 'A full-stack healthcare appointment management platform enabling patients to book appointments, manage medical records, and communicate with healthcare providers.',
     problemStatement: 'Patients face difficulties in finding available doctors, booking appointments, and managing their medical history across multiple healthcare providers. Manual appointment systems lead to scheduling conflicts, long wait times, and poor patient experience.',
@@ -186,7 +186,7 @@ export const projects: Project[] = [
     docs: '#',
     liveDemo: '#',
     assets: {
-      banner: '/projects/medihita/banner.png',
+      banner: '/projects/medihita.png',
       architectureImages: ['/projects/medihita/architecture-1.png'],
       screenshots: ['/projects/medihita/screenshot-1.png'],
       documentationFiles: [],
@@ -194,7 +194,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: 'ai-background-removal',
+    slug: 'ai-background-removal-saas',
     title: 'AI Background Removal SaaS',
     description: 'A SaaS application that uses AI/ML models to automatically remove backgrounds from images with high accuracy, providing clean cutouts for professional use.',
     problemStatement: 'Professional background removal from images typically requires expensive software and manual effort. Small businesses and individuals need an affordable, automated solution that delivers high-quality results without design expertise.',
@@ -234,14 +234,14 @@ export const projects: Project[] = [
     docs: '#',
     liveDemo: '#',
     assets: {
-      banner: '/projects/ai-background-removal/banner.png',
+      banner: '/projects/ai_bg_removal.png',
       architectureImages: ['/projects/ai-background-removal/architecture-1.png'],
       screenshots: ['/projects/ai-background-removal/screenshot-1.png'],
       documentationFiles: [],
     },
   },
   {
-    slug: 'job-matching',
+    slug: 'job-matching-platform',
     title: 'Job Matching Platform',
     description: 'An AI-driven job matching platform that uses NLP to analyze resumes and job descriptions, providing intelligent matching and recommendations for job seekers.',
     problemStatement: 'Job seekers spend hours scrolling through irrelevant job listings, while recruiters struggle to find qualified candidates from large applicant pools. Traditional keyword-based matching misses semantically relevant candidates.',
@@ -281,7 +281,7 @@ export const projects: Project[] = [
     docs: '#',
     liveDemo: '#',
     assets: {
-      banner: '/projects/job-matching/banner.png',
+      banner: '/projects/job_matching.png',
       architectureImages: ['/projects/job-matching/architecture-1.png'],
       screenshots: ['/projects/job-matching/screenshot-1.png'],
       documentationFiles: [],

@@ -28,11 +28,9 @@ export const ProjectsSection = () => {
           {featuredProjects.map((project, index) => (
             <ScrollReveal key={project.slug} delay={index * 0.1}>
               <GlowCard className="p-0 overflow-hidden h-full flex flex-col bg-slate-900 border-slate-800 group">
-                <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 border-b border-slate-800">
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10" />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:scale-105 transition-transform duration-500">
-                    <span className="text-6xl font-black text-white/5">{project.title.substring(0, 2)}</span>
-                  </div>
+                <div className="relative h-48 w-full overflow-hidden bg-slate-900 border-b border-slate-800">
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10" />
+                  <img src={project.assets.banner} alt={project.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
 
                 <div className="p-6 flex flex-col flex-1">
@@ -66,11 +64,6 @@ export const ProjectsSection = () => {
                     <Link href={project.github} target="_blank">
                       <Button variant="outline" className="px-3" aria-label="GitHub Repository">
                         <FaGithub className="w-5 h-5" />
-                      </Button>
-                    </Link>
-                    <Link href={`/projects/${project.slug}/docs`}>
-                      <Button variant="outline" className="px-3" aria-label="Documentation">
-                        <FileText className="w-5 h-5" />
                       </Button>
                     </Link>
                   </div>

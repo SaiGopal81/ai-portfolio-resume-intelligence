@@ -27,9 +27,11 @@ export default function RecruiterPage() {
             <h1 className="text-4xl font-bold text-white mb-2">Recruiter Snapshot</h1>
             <p className="text-slate-400 text-lg">Quick technical overview tailored for talent acquisition teams.</p>
           </div>
-          <Button variant="primary">
-            <Download className="w-4 h-4 mr-2" /> Download Full Resume
-          </Button>
+          <Link href="/resume/resume.pdf" target="_blank">
+            <Button variant="primary">
+              <Download className="w-4 h-4 mr-2" /> Download Full Resume
+            </Button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

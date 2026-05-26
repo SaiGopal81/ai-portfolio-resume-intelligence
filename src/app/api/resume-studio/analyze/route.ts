@@ -1,33 +1,23 @@
 import { NextResponse } from 'next/server';
-import { JobAnalysis } from '@/types';
+import { runHybridAnalysis } from '@/lib/hybrid-analysis';
 import { jobAnalysisRequestSchema } from '@/lib/validations';
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    // Validate request body
     const validatedData = jobAnalysisRequestSchema.parse(body);
 
-    // Mock analysis delay
-    await new Promise(resolve => setTimeout(resolve, 2500));
+    const { resumeData, jd } = validatedData;
     
-    const mockAnalysis: JobAnalysis = {
-      matchPercentage: 82,
-      requiredSkills: ['Python', 'SQL', 'PySpark', 'Airflow', 'Snowflake', 'dbt'],
-      matchedSkills: ['Python', 'SQL', 'PySpark', 'Airflow'],
-      missingSkills: ['Snowflake', 'dbt'],
-      partialMatches: [],
-      categoryBreakdown: [
-        { category: 'Data Engineering', matched: 4, total: 5, percentage: 80 },
-        { category: 'Cloud', matched: 2, total: 4, percentage: 50 },
-        { category: 'Databases', matched: 3, total: 3, percentage: 100 }
-      ],
-      keywordDistribution: [],
-      skillGapItems: []
-    };
+    if (!process.env.GROQ_API_KEY) {
+      console.warn("GROQ_API_KEY is not set. The analysis will fail.");
+    }
 
-    return NextResponse.json(mockAnalysis);
+    const analysis = await runHybridAnalysis(resumeData.rawText, jd);
+    
+    return NextResponse.json(analysis);
   } catch (error) {
-    return NextResponse.json({ error: 'Invalid request data' }, { status: 400 });
+    console.error("Error in analyze route:", error);
+    return NextResponse.json({ error: 'Analysis failed' }, { status: 500 });
   }
 }
